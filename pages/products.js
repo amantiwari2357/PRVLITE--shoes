@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import productsData from "@/data/productsData"; // Correct path check karein
+// import productsData from "@/data/productsData"; // Correct path check karein
+import productsData from "../data/products"; // Correct path check karein
 
 const Products = () => {
     return (

@@ -8,7 +8,7 @@ import NewsLetter from "@/components/NewsLetter";
 // import QuickEnquiry from "@/components/QuickEnquiry";
 import NewArrival from "@/components/NewArrival";
 import ShopByCategory from "@/components/ShopByCategory";
-import AllProducts from "@/components/products/Product1";
+import AllProducts from "../components/products/product1";
 
 export default function Home() {
     const [loading, setLoading] = useState(false);
