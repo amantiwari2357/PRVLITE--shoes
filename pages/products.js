@@ -6,7 +6,7 @@ import productsData from "../data/products"; // Correct path check karein
 const Products = () => {
     return (
         <div className="p-5">
-            <h1 className="text-2xl font-bold mb-5">All Products</h1>
+            <h1 className="text-2xl font-bold mb-5">All Product</h1>
             <div className="grid grid-cols-2 gap-4">
                 {Object.entries(productsData).map(([category, products]) => (
                     products.map((product) => (
