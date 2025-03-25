@@ -2,7 +2,7 @@ const newArrivalData = [
     {
       title: "Latest Fashion Trends",
       description: "Discover the newest styles in our exclusive collection.",
-      image: "/products/newarrival3.webp",
+      image: "/products/formal8.jpg",
     },
     {
       title: "New Arrivals Just for You",
