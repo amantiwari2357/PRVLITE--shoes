@@ -1,5 +1,7 @@
-// productData.js
-const products = [
+import React from 'react'
+
+const productData = () => {
+  const products = [
 
     {
       name: "Ladies Footwear",
@@ -18,6 +20,11 @@ const products = [
         image: "/products/sports7.jpg",
       },
   ];
-  
-  export default products;
-  
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default productData
