@@ -1,6 +1,6 @@
 import React from "react";
-import products from "./productData";
-import testimonials from "@/data/testimonials";
+import productsData from "./productData"; // Ensure this file exports an array
+import testimonialsData from "@/data/testimonials"; // Ensure this file exports an array
 
 const aboutData = {
   title: "WELCOME TO OUR COMPANY!",
@@ -14,6 +14,10 @@ const aboutData = {
 };
 
 const About = () => {
+  // Ensure products and testimonials are arrays
+  const products = Array.isArray(productsData) ? productsData : [];
+  const testimonials = Array.isArray(testimonialsData) ? testimonialsData : [];
+
   return (
     <div className="container mx-auto p-6 space-y-10">
       {/* Hero Section */}
@@ -32,39 +36,45 @@ const About = () => {
       </div>
 
       {/* Product Showcase */}
-      <div>
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Our Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-56 w-full object-cover"
-              />
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
+      {products.length > 0 ? (
+        <div>
+          <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Our Products</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-56 w-full object-cover"
+                />
+                <div className="p-4 text-center">
+                  <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <p className="text-center text-gray-600">No products available.</p>
+      )}
 
       {/* Testimonials Section */}
-      <div className="bg-gray-50 py-10 px-6 rounded-lg shadow-md max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">What Our Customers Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
-              <p className="text-gray-800 italic leading-relaxed">"{testimonial.feedback}"</p>
-              <p className="text-gray-600 font-semibold mt-4 text-right">- {testimonial.name}</p>
-            </div>
-          ))}
+      {testimonials.length > 0 && (
+        <div className="bg-gray-50 py-10 px-6 rounded-lg shadow-md max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">What Our Customers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                <p className="text-gray-800 italic leading-relaxed">"{testimonial.feedback}"</p>
+                <p className="text-gray-600 font-semibold mt-4 text-right">- {testimonial.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Call-to-Action */}
       <div className="text-center">
