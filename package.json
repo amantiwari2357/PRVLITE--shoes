@@ -1,0 +1,40 @@
+{
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@fontsource/bebas-neue": "^5.2.5",
+        "@next/font": "13.1.6",
+        "@reduxjs/toolkit": "^1.9.3",
+        "@stripe/react-stripe-js": "^1.16.5",
+        "@stripe/stripe-js": "^1.48.0",
+        "eslint": "8.34.0",
+        "eslint-config-next": "13.1.6",
+        "framer-motion": "^12.5.0",
+        "next": "^13.1.6",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-icons": "^4.12.0",
+        "react-markdown": "^8.0.5",
+        "react-multi-carousel": "^2.8.2",
+        "react-parallax-tilt": "^1.7.287",
+        "react-redux": "^8.0.5",
+        "react-responsive-carousel": "^3.2.23",
+        "react-router-dom": "^7.4.0",
+        "react-slick": "^0.30.3",
+        "react-toastify": "^9.1.1",
+        "slick-carousel": "^1.8.1",
+        "swr": "^2.1.0"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^3.4.17"
+    }
+}
