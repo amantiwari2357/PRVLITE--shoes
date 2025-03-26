@@ -4,7 +4,7 @@ import categories from "../../data/categories";
 
 const WomensClothing = () => {
     // Fetch women's clothing category
-    const womensCategory = categories.find(cat => cat.name === "Womens-clothing");
+    const womensCategory = categories.find(cat => cat.name === "womens-shoes");
 
     if (!womensCategory || !womensCategory.products) {
         return <p className="text-center text-red-500">No products found for this category.</p>;

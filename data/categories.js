@@ -1,9 +1,9 @@
 export const categories = [
     {
         id: 1,
-        name: "Men's Shoes",
+        name: "mens-shoes",
         image: "/products/formal-shoes.jpg",
-        link: "/shop/mens-clothing",
+        link: "/shop/mens-shoes",
         products: [
             { id: 101, name: "Formal Shoes", price: 1499, image: "/products/mens1.jpg" },
             { id: 102, name: "Trendy Shoes", price: 799, image: "/products/mens2.jpg" },
@@ -96,9 +96,9 @@ export const categories = [
 
     {
         id: 6,
-        name: "Womens-Shoes",
+        name: "womens-shoes",
         image: "/products/womens8.jpg",
-        link: "/shop/womens-clothing",
+        link: "/shop/womens-shoes",
         products: [
             { id: 101, name: "Formal Shoes", price: 1499, image: "/products/womens1.jpg" },
             { id: 102, name: "Trendy Shoes", price: 799, image: "/products/womens2.jpg" },

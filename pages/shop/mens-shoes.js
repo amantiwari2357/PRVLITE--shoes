@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import categories from "../../data/categories";
 
 const MensClothing = () => {
-    const mensCategory = categories.find(cat => cat.name === "Men's Clothing");
+    const mensCategory = categories.find(cat => cat.name === "mens-shoes");
 
     // Timer State
     const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 30 });
