@@ -12,11 +12,11 @@ const ContactUs = () => {
         </div>
         <div className="bg-gray-100 p-4 rounded-lg shadow-md">
           <h3 className="font-semibold">// EMAIL //</h3>
-          <p className="mt-2">📧 amankumartiwari5255@gmail.com</p>
+          <p className="mt-2">📧 parav0087@gmail.com</p>
         </div>
         <div className="bg-gray-100 p-4 rounded-lg shadow-md">
           <h3 className="font-semibold">// PHONE //</h3>
-          <p className="mt-2">📞 +91-9031359720</p>
+          <p className="mt-2">📞 +91-9321227881</p>
         </div>
       </div>
       

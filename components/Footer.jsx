@@ -62,7 +62,7 @@ const Footer = () => {
 
                 {/* Bottom Section: Copyright */}
                 <div className="mt-6 text-center text-sm text-gray-400">
-                    © 2025 Developed by <span className="text-white font-semibold">Aman Tiwari</span>. All Rights Reserved.
+                    © 2025 Developed by <span className="text-white font-semibold">Digi India Solutions </span>. All Rights Reserved.
                 </div>
             </Wrapper>
         </footer>
