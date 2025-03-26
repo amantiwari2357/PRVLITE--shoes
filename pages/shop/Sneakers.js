@@ -97,8 +97,8 @@ const MensClothing = () => {
                 </div>
             </div>
 
-            <h1 className="text-3xl font-bold text-center my-6">Sneakers</h1>
-            <p className="text-center">Explore the latest trends in men's fashion and footwear.</p>
+            {/* <h1 className="text-3xl font-bold text-center my-6">Sneakers</h1> */}
+            {/* <p className="text-center">Explore the latest trends in men's fashion and footwear.</p> */}
 
             {/* 🏷️ Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -111,6 +111,15 @@ const MensClothing = () => {
                         </div>
                     </Link>
                 ))}
+
+                {/* View All Button */}
+<div className="flex justify-center mt-8">
+    <Link href="/shop">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
+            View All Products
+        </button>
+    </Link>
+</div>
             </div>
         </div>
     );

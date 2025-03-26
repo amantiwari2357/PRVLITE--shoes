@@ -57,23 +57,30 @@ const MensClothing = () => {
     return (
         <div className="max-w-[1360px] mx-auto p-4">
             {/* 🏷️ Banner Section with Offer */}
-            <div className="relative w-full h-[250px] md:h-[350px] lg:h-[450px] mb-6">
+            <div className="relative w-full h-80 mb-6">
                 <img 
                     src="/products/slide-3.png" 
-                    alt="Formal Shoes Collection" 
-                    className="w-full h-full object-cover rounded-md"
+                    alt="Sneakers Collection" 
+                    className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-white/90 p-4 rounded-lg shadow-md">
-                    <h2 className="text-3xl font-bold text-orange-500">FLAT 50% OFF</h2>
-                    <p className="text-lg mt-1">
-                        Hurry! Offer ends in 
-                        <span className="text-red-500"> {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.second}s</span>
-                    </p>
-                    <Link href="/shop">
-                        <button className="mt-3 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
-                            Shop Now
-                        </button>
-                    </Link>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-lg text-center px-6">
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">FormalShoes Collection</h1>
+                    {/* Offer Box */}
+<div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
+    <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
+    <p className="text-lg mt-1 text-black">
+        Hurry! Offer ends in 
+        <span className="text-red-500">
+            {" "}{timeLeft.hours}h {timeLeft.minutes}m {timeLeft.second}s
+        </span>
+    </p>
+    <Link href="/shop">
+        <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
+            Shop Now
+        </button>
+    </Link>
+</div>
+
                 </div>
             </div>
 
@@ -95,8 +102,8 @@ const MensClothing = () => {
                 </div>
             </div>
 
-            <h1 className="text-3xl font-bold text-center my-6">Formal Shoes</h1>
-            <p className="text-center">Explore the latest trends in men's fashion and footwear.</p>
+            {/* <h1 className="text-3xl font-bold text-center my-6">Formal Shoes</h1> */}
+            {/* <p className="text-center">Explore the latest trends in men's fashion and footwear.</p> */}
 
             {/* 🏷️ Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -113,21 +120,17 @@ const MensClothing = () => {
                         </a>
                     </Link>
                 ))}
+                {/* View All Button */}
+<div className="flex justify-center mt-8">
+    <Link href="/shop">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
+            View All Products
+        </button>
+    </Link>
+</div>
             </div>
 
-            {/* 🏷️ Offer Box (Added Below Product List) */}
-            <div className="mt-6 bg-white/90 px-4 py-2 rounded-lg shadow-md text-center">
-                <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
-                <p className="text-lg mt-1 text-black">
-                    Hurry! Offer ends in 
-                    <span className="text-red-500"> {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.second}s</span>
-                </p>
-                <Link href="/shop">
-                    <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
-                        Shop Now
-                    </button>
-                </Link>
-            </div>
+           
         </div>
     );
 };

@@ -108,17 +108,31 @@ const MensClothing = () => {
             </div>
 
             {/* 🏷️ Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
-                {filteredProducts.map((product) => (
-                    <Link key={product.id} href={`/shop/product/${product.id}`}>
-                        <div className="border p-4 rounded-md shadow-md cursor-pointer hover:shadow-lg transition-all">
-                            <img src={product.image} alt={product.name} className="w-full h-60 object-cover rounded-md"/>
-                            <h2 className="text-lg font-bold mt-2">{product.name}</h2>
-                            <p className="text-gray-500">₹{product.price}</p>
-                        </div>
-                    </Link>
-                ))}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-6">
+    {filteredProducts.map((product) => (
+        <Link key={product.id} href={`/shop/product/${product.id}`}>
+            <div className="border p-4 rounded-lg shadow-md cursor-pointer bg-white transition-transform transform hover:scale-105 hover:shadow-xl">
+                <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="w-full h-60 object-cover rounded-lg"
+                />
+                <h2 className="text-xl font-semibold mt-3">{product.name}</h2>
+                <p className="text-gray-600 text-lg font-medium">₹{product.price}</p>
             </div>
+        </Link>
+    ))}
+</div>
+
+{/* View All Button */}
+<div className="flex justify-center mt-8">
+    <Link href="/shop">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
+            View All Products
+        </button>
+    </Link>
+</div>
+
         </div>
     );
 };

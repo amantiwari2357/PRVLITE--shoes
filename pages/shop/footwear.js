@@ -57,27 +57,31 @@ const MensClothing = () => {
 
     return (
         <div className="max-w-[1360px] mx-auto p-4">
-            
-            {/* ✅ Banner Section with Offer */}
-            <div className="relative w-full h-[200px] md:h-[300px] lg:h-[350px] mb-6">
+            {/* 🏷️ Banner Section with Offer */}
+            <div className="relative w-full h-80 mb-6">
                 <img 
-                    src="/products/mens2.jpg" 
-                    alt="Formal Shoes Collection" 
-                    className="w-full h-full object-cover rounded-md"
+                    src="/products/slide-2.png" 
+                    alt="Sneakers Collection" 
+                    className="w-full h-full object-cover rounded-lg"
                 />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-lg text-center px-6">
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">FormalShoes Collection</h1>
+                    {/* Offer Box */}
+<div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
+    <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
+    <p className="text-lg mt-1 text-black">
+        Hurry! Offer ends in 
+        <span className="text-red-500">
+            {" "}{timeLeft.hours}h {timeLeft.minutes}m {timeLeft.second}s
+        </span>
+    </p>
+    <Link href="/shop">
+        <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
+            Shop Now
+        </button>
+    </Link>
+</div>
 
-                {/* ✅ Offer Box - Positioned Over the Image */}
-                <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black/50 p-4 rounded-md">
-                    <h2 className="text-4xl font-bold text-orange-500">FLAT 50% OFF</h2>
-                    <p className="text-lg mt-2 font-semibold">
-                        Hurry! Offer ends in 
-                        <span className="text-yellow-300"> {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
-                    </p>
-                    <Link href="/shop">
-                        <button className="mt-3 px-5 py-2 bg-orange-500 text-white rounded-full text-lg hover:bg-orange-600 transition">
-                            Shop Now
-                        </button>
-                    </Link>
                 </div>
             </div>
 
@@ -102,8 +106,8 @@ const MensClothing = () => {
             </div>
 
             {/* ✅ Heading */}
-            <h1 className="text-4xl font-bold text-center my-6">Formal Footwear</h1>
-            <p className="text-lg text-center">Discover the best formal shoes for your style.</p>
+            {/* <h1 className="text-4xl font-bold text-center my-6">Formal Footwear</h1>
+            <p className="text-lg text-center">Discover the best formal shoes for your style.</p> */}
 
             {/* ✅ Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -116,23 +120,17 @@ const MensClothing = () => {
                         </div>
                     </Link>
                 ))}
+                {/* View All Button */}
+<div className="flex justify-center mt-8">
+    <Link href="/shop">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
+            View All Products
+        </button>
+    </Link>
+</div>
             </div>
 
-            {/* ✅ Offer Box Below the Products */}
-            <div className="mt-6 bg-white/90 px-6 py-4 rounded-lg shadow-md text-center">
-                <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
-                <p className="text-lg mt-1 text-black">
-                    Hurry! Offer ends in 
-                    <span className="text-red-500">
-                        {" "} {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
-                    </span>
-                </p>
-                <Link href="/shop">
-                    <button className="mt-3 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
-                        Shop Now
-                    </button>
-                </Link>
-            </div>
+           
         </div>
     );
 };

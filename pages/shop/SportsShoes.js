@@ -51,14 +51,15 @@ const MensClothing = () => {
 
     return (
         <div className="max-w-[1360px] mx-auto p-4">
-            <div className="relative w-full h-[250px] md:h-[350px] lg:h-[450px] mb-6">
+            {/* 🏷️ Banner Section with Offer */}
+            <div className="relative w-full h-80 mb-6">
                 <img 
-                    src="/products/mens2.jpg" 
-                    alt="Sports Shoes Collection" 
-                    className="w-full h-full object-cover rounded-md"
+                    src="/products/slide-3.png" 
+                    alt="Sneakers Collection" 
+                    className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-md text-center px-6">
-                    <h1 className="text-4xl font-bold text-white">Sports Shoes Collection</h1>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-lg text-center px-6">
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">SportsShoes Collection</h1>
                     {/* Offer Box */}
 <div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
     <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>

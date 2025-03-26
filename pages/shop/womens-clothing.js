@@ -56,15 +56,15 @@ const WomensClothing = () => {
 
     return (
         <div className="max-w-[1360px] mx-auto p-4">
-            {/* Banner Section */}
-            <div className="relative w-full h-[250px] md:h-[350px] lg:h-[450px] mb-6">
+            {/* 🏷️ Banner Section with Offer */}
+            <div className="relative w-full h-80 mb-6">
                 <img 
                     src="/products/slide-2.png" 
-                    alt="Women's Clothing Collection" 
-                    className="w-full h-full object-cover rounded-md"
+                    alt="Sneakers Collection" 
+                    className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-md text-center px-6">
-                    <h1 className="text-4xl font-bold text-white">Women's Clothing Collection</h1>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-lg text-center px-6">
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">WomensClothing Collection</h1>
                     {/* Offer Box */}
 <div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
     <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
@@ -117,6 +117,14 @@ const WomensClothing = () => {
                         </a>
                     </Link>
                 ))}
+                {/* View All Button */}
+<div className="flex justify-center mt-8">
+    <Link href="/shop">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
+            View All Products
+        </button>
+    </Link>
+</div>
             </div>
         </div>
     );
