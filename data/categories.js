@@ -1,7 +1,7 @@
 export const categories = [
     {
         id: 1,
-        name: "Men's Clothing",
+        name: "Men's Shoes",
         image: "/products/formal-shoes.jpg",
         link: "/shop/mens-clothing",
         products: [
@@ -96,7 +96,7 @@ export const categories = [
 
     {
         id: 6,
-        name: "Womens-clothing",
+        name: "Womens-Shoes",
         image: "/products/womens8.jpg",
         link: "/shop/womens-clothing",
         products: [
