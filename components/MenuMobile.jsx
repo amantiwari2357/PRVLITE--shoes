@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { categories as staticCategories } from "../data/categories"; // ✅ सही import path
+import { categories as staticCategories } from "../data/categories"; 
 
 const data = [
     { id: 1, name: "Home", url: "/" },
@@ -49,7 +49,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                                         return (
                                             <li key={category?.id} className="py-3 px-8 border-t hover:bg-blue-100">
                                                 <Link 
-                                                    href={c?.slug ? `/category/${c.slug}` : "#"} 
+                                                    href={c?.slug ? `/category/${c.slug}` : `/category/${c.slug}`} 
                                                     onClick={() => {
                                                         setShowCatMenu(false);
                                                         setMobileMenu(false);

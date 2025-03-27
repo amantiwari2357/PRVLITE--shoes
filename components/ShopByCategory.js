@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import categories from "@/data/categories"; // Importing category data
 
 const ShopByCategory = () => {
+  const router = useRouter();
+
   const handleCategoryClick = (link) => {
-    window.location.href = link; // Redirect to category link
+    router.push(link); // Redirect to category link
   };
 
   return (
@@ -46,6 +49,16 @@ const ShopByCategory = () => {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* View All Button */}
+      <div className="text-center mt-12">
+        <button
+          onClick={() => router.push("/shop")}
+          className="px-6 py-3 bg-[#ff4500] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#e03e00] transition-all duration-300"
+        >
+          View All
+        </button>
       </div>
     </motion.div>
   );
