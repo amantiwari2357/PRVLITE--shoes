@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { categories as staticCategories } from "../data/categories"; // ✅ Corrected import path
+import { categories as staticCategories } from "../data/categories"; // ✅ सही import path
 
 const data = [
     { id: 1, name: "Home", url: "/" },
@@ -13,10 +13,8 @@ const data = [
 const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
     const [categories, setCategories] = useState([]);
 
-    // ✅ Ensuring categories are set properly
     useEffect(() => {
         setCategories(staticCategories);
-        console.log("Categories Data:", staticCategories);
     }, []);
 
     return (
@@ -31,9 +29,11 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                         <li
                             className="cursor-pointer py-4 px-5 border-b 
                             flex flex-col relative hover:bg-blue-50"
-                            onClick={() => setShowCatMenu(!showCatMenu)}
                         >
-                            <div className="flex justify-between items-center">
+                            <div
+                                className="flex justify-between items-center"
+                                onClick={() => setShowCatMenu(!showCatMenu)}
+                            >
                                 {item.name}
                                 <BsChevronDown
                                     size={14}
@@ -41,36 +41,34 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                                 />
                             </div>
 
-                            {showCatMenu && categories?.length > 0 && (
-    <ul className="bg-blue-50 -mx-5 mt-2 -mb-2 transition-all duration-300 overflow-hidden">
-        {categories.map((category) => {
-            const c = category?.attributes || category; // Ensure correct structure
+                            {showCatMenu && categories.length > 0 && (
+                                <ul className="bg-blue-50 -mx-5 mt-2 -mb-2 transition-all duration-300 overflow-hidden">
+                                    {categories.map((category) => {
+                                        const c = category?.attributes || category;
 
-            return (
-                <Link
-                    key={category?.id}
-                    href={c?.slug ? `/category/${c.slug}` : "#"}
-                    onClick={() => {
-                        setShowCatMenu(false);
-                        setMobileMenu(false);
-                    }}
-                >
-                    <li className="py-3 px-8 border-t flex justify-between hover:bg-blue-100">
-                        {c?.name || "Unnamed Category"} 
-                        <span className="opacity-60 text-sm hidden">
-                            {`(${c?.products?.data?.length || ""})`}
-                        </span>
-                    </li>
-                </Link>
-            );
-        })}
-    </ul>
-)}
-
+                                        return (
+                                            <li key={category?.id} className="py-3 px-8 border-t hover:bg-blue-100">
+                                                <Link 
+                                                    href={c?.slug ? `/category/${c.slug}` : "#"} 
+                                                    onClick={() => {
+                                                        setShowCatMenu(false);
+                                                        setMobileMenu(false);
+                                                    }}
+                                                >
+                                                    {c?.name || "Unnamed Category"}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            )}
                         </li>
                     ) : (
                         <li className="py-4 px-5 border-b hover:bg-blue-50">
-                            <Link href={item?.url} onClick={() => setMobileMenu(false)}>
+                            <Link 
+                                href={item?.url} 
+                                onClick={() => setMobileMenu(false)}
+                            >
                                 {item.name}
                             </Link>
                         </li>
