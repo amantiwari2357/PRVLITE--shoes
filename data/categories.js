@@ -1,21 +1,21 @@
 export const categories = [
-    {
-        id: 1,
-        name: "mens-shoes",
-        image: "/products/formal-shoes.jpg",
-        link: "/shop/mens-shoes",
-        products: [
-            { id: 101, name: "Formal Shoes", price: 1499, image: "/products/mens1.jpg" },
-            { id: 102, name: "Trendy Shoes", price: 799, image: "/products/mens2.jpg" },
-            { id: 103, name: "SliM Shoes", price: 1299, image: "/products/mens3.jpg" },
-            { id: 104, name: "strong shoes", price: 1300, image: "/products/mens4.jpg"},
-            { id: 105, name: "Formal Shoes", price: 1499, image: "/products/mens5.jpg" },
-            { id: 106, name: "Trendy Shoes", price: 799, image: "/products/mens6.jpg" },
-            { id: 107, name: "SliM Shoes", price: 1299, image: "/products/mens7.jpg" },
-            { id: 108, name: "strong shoes", price: 1300, image: "/products/mens8.jpg"}
-            
-        ]
-    },
+        {
+            id: 1,
+            name: "mens-shoes",
+            image: "/products/formal-shoes.jpg",
+            link: "/shop/mens-shoes",
+            products: [
+                { id: 101, name: "Formal Shoes", price: 1499, image: "/products/mens1.jpg" },
+                { id: 102, name: "Trendy Shoes", price: 799, image: "/products/mens2.jpg" },
+                { id: 103, name: "SliM Shoes", price: 1299, image: "/products/mens3.jpg" },
+                { id: 104, name: "strong shoes", price: 1300, image: "/products/mens4.jpg"},
+                { id: 105, name: "Formal Shoes", price: 1499, image: "/products/mens5.jpg" },
+                { id: 106, name: "Trendy Shoes", price: 799, image: "/products/mens6.jpg" },
+                { id: 107, name: "SliM Shoes", price: 1299, image: "/products/mens7.jpg" },
+                { id: 108, name: "strong shoes", price: 1300, image: "/products/mens8.jpg"}
+                
+            ]
+        },
     {
         id: 2,
         name: "CasualShoes",
