@@ -1,6 +1,6 @@
-import React from "react";
-import productsData from "./productData"; // Ensure this file exports an array
+import React, { useState } from "react";
 import testimonialsData from "@/data/testimonials"; // Ensure this file exports an array
+import Link from "next/link";
 
 const aboutData = {
   title: "WELCOME TO OUR COMPANY!",
@@ -14,8 +14,7 @@ const aboutData = {
 };
 
 const About = () => {
-  // Ensure products and testimonials are arrays
-  const products = Array.isArray(productsData) ? productsData : [];
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const testimonials = Array.isArray(testimonialsData) ? testimonialsData : [];
 
   return (
@@ -30,36 +29,20 @@ const About = () => {
         </h1>
       </div>
 
-      {/* Company Description */}
+      {/* Company Description with Read More / Read Less */}
       <div className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
-        <p className="whitespace-pre-line">{aboutData.description}</p>
+        <p className="whitespace-pre-line">
+          {showFullDescription
+            ? aboutData.description
+            : `${aboutData.description.slice(0, 300)}...`}
+        </p>
+        <button
+          className="text-blue-600 font-semibold mt-3 focus:outline-none"
+          onClick={() => setShowFullDescription(!showFullDescription)}
+        >
+          {showFullDescription ? "Read Less" : "Read More"}
+        </button>
       </div>
-
-      {/* Product Showcase */}
-      {products.length > 0 ? (
-        <div>
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Our Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-56 w-full object-cover"
-                />
-                <div className="p-4 text-center">
-                  <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <p className="text-center text-gray-600">No products available.</p>
-      )}
 
       {/* Testimonials Section */}
       {testimonials.length > 0 && (
@@ -78,9 +61,11 @@ const About = () => {
 
       {/* Call-to-Action */}
       <div className="text-center">
+      <Link href="/shop">
         <button className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 transform hover:scale-105">
           Explore Our Collection
         </button>
+        </Link>
       </div>
     </div>
   );
