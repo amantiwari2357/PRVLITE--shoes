@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { categories as staticCategories } from "../data/categories"; 
+import { categories as staticCategories } from "../data/categories";
 
 const data = [
     { id: 1, name: "Home", url: "/" },
@@ -22,11 +22,14 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
             {data.map((item) => (
                 <React.Fragment key={item.id}>
                     {item?.subMenu ? (
-                        <li className="cursor-pointer py-4 px-5 border-b flex flex-col relative hover:bg-blue-50">
-                            <div
-                                className="flex justify-between items-center"
-                                onClick={() => setShowCatMenu((prev) => !prev)} // ✅ Toggle category menu
-                            >
+                        <li 
+                            className="cursor-pointer py-4 px-5 border-b flex flex-col relative hover:bg-blue-50"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setShowCatMenu((prev) => !prev);
+                            }}
+                        >
+                            <div className="flex justify-between items-center">
                                 {item.name}
                                 <BsChevronDown
                                     size={14}
@@ -39,17 +42,16 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                                     {categories.map((category) => {
                                         const c = category?.attributes || category;
                                         return (
-                                            <li key={category?.id} className="py-3 px-8 border-t hover:bg-blue-100">
-                                                <Link 
-                                                    href={c?.slug ? `/category/${c.slug}` : `/category/${c.slug}`} 
-                                                    onClick={(e) => {
-                                                        e.stopPropagation(); // ✅ Prevents event issues
-                                                        setShowCatMenu(false);
-                                                        setTimeout(() => setMobileMenu(false), 300); // ✅ Close menu smoothly
-                                                    }}
-                                                >
-                                                    {c?.name || "Unnamed Category"}
-                                                </Link>
+                                            <li 
+                                                key={category?.id} 
+                                                className="py-3 px-8 border-t hover:bg-blue-100"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setShowCatMenu(false);
+                                                    setTimeout(() => setMobileMenu(false), 300);
+                                                }}
+                                            >
+                                                <Link href={`/category/${c.slug}`}>{c?.name || "Unnamed Category"}</Link>
                                             </li>
                                         );
                                     })}
@@ -59,10 +61,10 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                     ) : (
                         <li className="py-4 px-5 border-b hover:bg-blue-50">
                             <Link 
-                                href={item?.url} 
+                                href={item?.url}
                                 onClick={(e) => {
-                                    e.stopPropagation(); // ✅ Prevents event bubbling
-                                    setTimeout(() => setMobileMenu(false), 300); // ✅ Ensures smooth navigation
+                                    e.stopPropagation();
+                                    setTimeout(() => setMobileMenu(false), 300);
                                 }}
                             >
                                 {item.name}
