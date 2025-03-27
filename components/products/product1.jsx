@@ -37,7 +37,7 @@ const HomeProducts = () => {
             <div className="text-center my-8">
                 <button
                     onClick={() => router.push("/all-products")}
-                    className="px-6 py-3 bg-[#ff4500] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-[#e03e00] transition duration-300"
+                    className="w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full hover:bg-black hover:text-white text-black transition-all font-medium text-sm sm:text-base border-black/10"
                 >
                     View All
                 </button>
