@@ -57,8 +57,8 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                 >
                     <li className="py-3 px-8 border-t flex justify-between hover:bg-blue-100">
                         {c?.name || "Unnamed Category"} 
-                        <span className="opacity-60 text-sm">
-                            {`(${c?.products?.data?.length || 0})`}
+                        <span className="opacity-60 text-sm hidden">
+                            {`(${c?.products?.data?.length || ""})`}
                         </span>
                     </li>
                 </Link>
