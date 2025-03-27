@@ -26,10 +26,10 @@ const Footer = () => {
                         <h3 className="text-xl font-semibold text-blue-400 mb-3">Quick Links</h3>
                         <div className="flex flex-col gap-2 text-sm">
                             <Link href="/about"><span className="hover:text-blue-400 cursor-pointer">About Us</span></Link>
-                            <Link href="/terms"><span className="hover:text-blue-400 cursor-pointer">Terms & Conditions</span></Link>
-                            <Link href="/privacy"><span className="hover:text-blue-400 cursor-pointer">Privacy Policy</span></Link>
-                            <Link href="/refund"><span className="hover:text-blue-400 cursor-pointer">Refund Policy</span></Link>
-                            <Link href="/contact"><span className="hover:text-blue-400 cursor-pointer">Contact Us</span></Link>
+                            <Link href="/TermsAndConditions"><span className="hover:text-blue-400 cursor-pointer">Terms & Conditions</span></Link>
+                            <Link href="/PrivacyPolicy"><span className="hover:text-blue-400 cursor-pointer">Privacy Policy</span></Link>
+                            <Link href="/RefundPolicy"><span className="hover:text-blue-400 cursor-pointer">Refund Policy</span></Link>
+                            <Link href="/ContactUs"><span className="hover:text-blue-400 cursor-pointer">Contact Us</span></Link>
                         </div>
                     </div>
 
