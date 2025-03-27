@@ -34,26 +34,31 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
         return () => clearInterval(interval);
     }, []);
 
-    return (
-        <div className="relative">
-            {/* ✅ Offer Banner with Changing Colors */}
-            {showOffer && (
-                <div className={`${offerColor} text-white text-center py-0 px-2 flex justify-between items-center transition-all duration-500`}>
-                    <span className="text-sm md:text-base font-semibold">
-                        {offerMessages[currentOffer]}
-                    </span>
-                    <button onClick={() => setShowOffer(false)} className=" font-bold px-3">
-                        ✖
-                    </button>
-                </div>
-            )}
+    // return (
+    //     <div className="relative">
+    //         {/* ✅ Offer Banner with Changing Colors */}
+    //         {showOffer && (
+    //             <div className={`${offerColor} text-white text-center py-0 px-2 flex justify-between items-center transition-all duration-500`}>
+    //                 {/* ✅ Mobile View: Show only "Enjoy Offer" */}
+    //                 <span className="text-sm font-semibold md:hidden">Enjoy Offer</span>
+                    
+    //                 {/* ✅ Desktop View: Show full offer message */}
+    //                 <span className="hidden md:block text-sm md:text-base font-semibold">
+    //                     {offerMessages[currentOffer]}
+    //                 </span>
+
+    //                 <button onClick={() => setShowOffer(false)} className="font-bold px-3">
+    //                     ✖
+    //                 </button>
+    //             </div>
+    //         )}
 
             {/* ✅ Space added between Offer & Menu */}
             <div className="mt-4"></div> 
 
             {/* ✅ Navigation Menu */}
             <ul className="hidden md:flex items-center gap-8 font-medium text-black">
-                {[
+                {[ 
                     { id: 1, name: "Home", url: "/" },
                     { id: 2, name: "About", url: "/about" },
                     { id: 3, name: "Categories", subMenu: true },
@@ -102,8 +107,8 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                     </React.Fragment>
                 ))}
             </ul>
-        </div>
-    );
+        // </div>
+    // );
 };
 
 export default Menu;
