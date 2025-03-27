@@ -5,11 +5,26 @@ import productsData from "@/data/products"; // Import product data
 
 const HomeProducts = () => {
     const [products, setProducts] = useState([]);
+    const [visibleProducts, setVisibleProducts] = useState([]);
     const router = useRouter();
 
     useEffect(() => {
         const allProducts = Object.values(productsData).flat();
         setProducts(allProducts);
+
+        // Responsive Products Display
+        const updateVisibleProducts = () => {
+            if (window.innerWidth < 640) {
+                setVisibleProducts(allProducts.slice(0, 4)); // Mobile: 4 products (2x2 grid)
+            } else {
+                setVisibleProducts(allProducts.slice(0, 8)); // Desktop: 8 products
+            }
+        };
+
+        updateVisibleProducts(); // Set initial value
+        window.addEventListener("resize", updateVisibleProducts); // Listen for screen resize
+
+        return () => window.removeEventListener("resize", updateVisibleProducts); // Cleanup
     }, []);
 
     return (
@@ -25,8 +40,8 @@ const HomeProducts = () => {
             </div>
 
             {/* Show Limited Products */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {products.slice(0, 8).map((product) => (
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {visibleProducts.map((product) => (
                     <div key={product.id} className="border rounded-lg shadow-lg overflow-hidden p-4">
                         <ProductCard data={product} />
                     </div>

@@ -34,24 +34,24 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
         return () => clearInterval(interval);
     }, []);
 
-    // return (
-    //     <div className="relative">
-    //         {/* ✅ Offer Banner with Changing Colors */}
-    //         {showOffer && (
-    //             <div className={`${offerColor} text-white text-center py-0 px-2 flex justify-between items-center transition-all duration-500`}>
-    //                 {/* ✅ Mobile View: Show only "Enjoy Offer" */}
-    //                 <span className="text-sm font-semibold md:hidden">Enjoy Offer</span>
+    return (
+        <div className="relative">
+            {/* ✅ Offer Banner with Changing Colors */}
+            {showOffer && (
+                <div className={`${offerColor} text-white text-center py-0 px-2 flex justify-between items-center transition-all duration-500`}>
+                    {/* ✅ Mobile View: Show only "Enjoy Offer" */}
+                    <span className="text-sm font-semibold md:hidden">Enjoy Offer</span>
                     
-    //                 {/* ✅ Desktop View: Show full offer message */}
-    //                 <span className="hidden md:block text-sm md:text-base font-semibold">
-    //                     {offerMessages[currentOffer]}
-    //                 </span>
+                    {/* ✅ Desktop View: Show full offer message */}
+                    <span className="hidden md:block text-sm md:text-base font-semibold">
+                        {offerMessages[currentOffer]}
+                    </span>
 
-    //                 <button onClick={() => setShowOffer(false)} className="font-bold px-3">
-    //                     ✖
-    //                 </button>
-    //             </div>
-    //         )}
+                    <button onClick={() => setShowOffer(false)} className="font-bold px-3">
+                        ✖
+                    </button>
+                </div>
+            )}
 
             {/* ✅ Space added between Offer & Menu */}
             <div className="mt-4"></div> 
@@ -107,8 +107,8 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                     </React.Fragment>
                 ))}
             </ul>
-        // </div>
-    // );
+        </div>
+    );
 };
 
 export default Menu;

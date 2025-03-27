@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import categories from "@/data/categories"; // Importing category data
 
 const ShopByCategory = () => {
   const router = useRouter();
+  const [visibleCategories, setVisibleCategories] = useState([]);
+
+  useEffect(() => {
+    // Check screen width on client side
+    const updateVisibleCategories = () => {
+      setVisibleCategories(categories.slice(0, window.innerWidth < 768 ? 4 : 8));
+    };
+
+    updateVisibleCategories(); // Set initial value
+    window.addEventListener("resize", updateVisibleCategories); // Update on resize
+
+    return () => window.removeEventListener("resize", updateVisibleCategories); // Cleanup
+  }, []);
 
   const handleCategoryClick = (link) => {
-    router.push(link); // Redirect to category link
+    router.push(link);
   };
 
   return (
@@ -29,7 +42,7 @@ const ShopByCategory = () => {
 
       {/* Categories Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
-        {categories.map((category) => (
+        {visibleCategories.map((category) => (
           <motion.div
             key={category.id}
             whileHover={{ scale: 1.05 }}
@@ -54,7 +67,7 @@ const ShopByCategory = () => {
       {/* View All Button */}
       <div className="text-center mt-12">
         <button
-          onClick={() => router.push("/shop")}
+          onClick={() => setVisibleCategories(categories)} // Show all categories
           className="w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full hover:bg-black hover:text-white text-black transition-all font-medium text-sm sm:text-base border-black/10"
         >
           View All
