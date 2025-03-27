@@ -7,7 +7,7 @@ const productsData = {
                 name: "Prvlite StrideX Sneakers",
                 slug: "prvlite-stridex-sneakers",
                 price: 4999,
-                original_price: 5999,
+                // original_price: 5999,
                 description: "A fusion of style and comfort, engineered for everyday adventures.",
                 thumbnail: {
                     data: {
@@ -25,7 +25,7 @@ const productsData = {
                 name: "Prvlite StrideX Sneakers",
                 slug: "prvlite-stridex-sneakers",
                 price: 4999,
-                original_price: 5999,
+                // original_price: 5999,
                 description: "A fusion of style and comfort, engineered for everyday adventures.",
                 thumbnail: {
                     data: {
@@ -42,7 +42,7 @@ const productsData = {
                 name: "Prvlite AeroRun Pro",
                 slug: "prvlite-aerorun-pro",
                 price: 7999,
-                original_price: 9999,
+                // original_price: 9999,
                 description: "Ultra-lightweight running shoes designed for high-performance athletes.",
                 thumbnail: {
                     data: {
@@ -59,7 +59,7 @@ const productsData = {
                 name: "Prvlite Velocity Sneakers",
                 slug: "prvlite-velocity-sneakers",
                 price: 3499,
-                original_price: 4999,
+                // original_price: 4999,
                 description: "A sleek, modern design crafted for speed and comfort.",
                 thumbnail: {
                     data: {
@@ -80,7 +80,7 @@ const productsData = {
                 name: "Prvlite Classic Denim",
                 slug: "prvlite-classic-denim",
                 price: 2999,
-                original_price: 3999,
+                // original_price: 3999,
                 description: "An iconic denim jacket, tailored for a refined urban look.",
                 thumbnail: {
                     data: {
@@ -98,7 +98,7 @@ const productsData = {
                 name: "Prvlite Classic Denim",
                 slug: "prvlite-classic-denim",
                 price: 2999,
-                original_price: 3999,
+                // original_price: 3999,
                 description: "An iconic denim jacket, tailored for a refined urban look.",
                 thumbnail: {
                     data: {
@@ -115,7 +115,7 @@ const productsData = {
                 name: "Prvlite Luxe Hoodie",
                 slug: "prvlite-luxe-hoodie",
                 price: 2499,
-                original_price: 3499,
+                // original_price: 3499,
                 description: "Premium cotton-blend hoodie with an ultra-soft inner lining.",
                 thumbnail: {
                     data: {
@@ -132,7 +132,7 @@ const productsData = {
                 name: "Prvlite Signature Shirt",
                 slug: "prvlite-signature-shirt",
                 price: 1999,
-                original_price: 2599,
+                // original_price: 2599,
                 description: "A breathable, lightweight casual shirt for a sophisticated look.",
                 thumbnail: {
                     data: {
@@ -154,7 +154,7 @@ const productsData = {
                 name: "Prvlite VisionX Shades",
                 slug: "prvlite-visionx-shades",
                 price: 5999,
-                original_price: 6999,
+                // original_price: 6999,
                 description: "Premium polarized sunglasses engineered for superior UV protection.",
                 thumbnail: {
                     data: {
@@ -171,7 +171,7 @@ const productsData = {
                 name: "Prvlite VisionX Shades",
                 slug: "prvlite-visionx-shades",
                 price: 5999,
-                original_price: 6999,
+                // original_price: 6999,
                 description: "Premium polarized sunglasses engineered for superior UV protection.",
                 thumbnail: {
                     data: {
@@ -188,7 +188,7 @@ const productsData = {
                 name: "Prvlite Elite Wallet",
                 slug: "prvlite-elite-wallet",
                 price: 2499,
-                original_price: 3499,
+                // original_price: 3499,
                 description: "A luxurious leather wallet, crafted for elegance and durability.",
                 thumbnail: {
                     data: {
@@ -205,7 +205,7 @@ const productsData = {
                 name: "Prvlite ChronoMaster Watch",
                 slug: "prvlite-chronomaster-watch",
                 price: 149999,
-                original_price: 179999,
+                // original_price: 179999,
                 description: "A masterpiece in timekeeping with a sleek and timeless design.",
                 thumbnail: {
                     data: {
