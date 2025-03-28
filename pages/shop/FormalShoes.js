@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import categories from "../../data/categories";
+import categories from "@/data/categories";
 
 const MensClothing = () => {
     // Find the category data

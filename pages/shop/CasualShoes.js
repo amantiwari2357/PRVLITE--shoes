@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import categories from "../../data/categories";
+import categories from "@/data/categories";
 
 const CasualShoes = () => {
     const CasualShoesCategory = categories.find(cat => cat.name === "CasualShoes");
