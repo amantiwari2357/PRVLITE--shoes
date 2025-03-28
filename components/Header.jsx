@@ -41,7 +41,7 @@ const Header = () => {
         >
             <Wrapper className="h-[100px] flex justify-between items-center px-4 md:px-8">
                 <Link href="/">
-                    <img src="/images/logo.webp" className="w-[120px] md:w-[130px] h-[60px] md:h-[45px]" />
+                    <img src="/images/logo.webp" className="w-[120px] md:w-[130px] h-[60px] md:h-[35px]" />
                 </Link>
 
                 <Menu

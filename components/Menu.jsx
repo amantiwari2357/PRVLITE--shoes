@@ -5,8 +5,8 @@ import { categories } from "@/data/categories"; // ✅ Import categories.js
 
 const Menu = ({ showCatMenu, setShowCatMenu }) => {
     const [loading, setLoading] = useState(true);
-    const [showOffer, setShowOffer] = useState(true); // ✅ Offer visibility state
-    const [offerColor, setOfferColor] = useState("bg-red-500"); // ✅ Dynamic Offer Color
+    const [showOffer, setShowOffer] = useState(true);
+    const [offerColor, setOfferColor] = useState("bg-red-500");
 
     const offerMessages = [
         "🎉 Sign up now and get 50% OFF on your first purchase!",
@@ -15,17 +15,12 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
         "🎁 Special Offer: Buy 1 Get 1 Free on select products!"
     ];
 
-    const offerColors = ["bg-red-500", "bg-blue-500", "bg-green-500", "bg-purple-500"]; // ✅ Offer Background Colors
-
+    const offerColors = ["bg-red-500", "bg-blue-500", "bg-green-500", "bg-purple-500"];
     const [currentOffer, setCurrentOffer] = useState(0);
 
     useEffect(() => {
-        // Simulate loading delay
-        setTimeout(() => {
-            setLoading(false);
-        }, 1000);
+        setTimeout(() => setLoading(false), 1000);
 
-        // Change offer message and color every 5 seconds
         const interval = setInterval(() => {
             setCurrentOffer((prev) => (prev + 1) % offerMessages.length);
             setOfferColor(offerColors[Math.floor(Math.random() * offerColors.length)]);
@@ -36,29 +31,22 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
 
     return (
         <div className="relative">
-            {/* ✅ Offer Banner with Changing Colors */}
             {showOffer && (
                 <div className={`${offerColor} text-white text-center py-0 px-2 flex justify-between items-center transition-all duration-500`}>
-                    {/* ✅ Mobile View: Show only "Enjoy Offer" */}
                     <span className="text-sm font-semibold md:hidden">Enjoy Offer</span>
-                    
-                    {/* ✅ Desktop View: Show full offer message */}
                     <span className="hidden md:block text-sm md:text-base font-semibold">
                         {offerMessages[currentOffer]}
                     </span>
-
                     <button onClick={() => setShowOffer(false)} className="font-bold px-3">
                         ✖
                     </button>
                 </div>
             )}
 
-            {/* ✅ Space added between Offer & Menu */}
-            <div className="mt-4"></div> 
+            <div className="mt-4"></div>
 
-            {/* ✅ Navigation Menu */}
             <ul className="hidden md:flex items-center gap-8 font-medium text-black">
-                {[ 
+                {[
                     { id: 1, name: "Home", url: "/" },
                     { id: 2, name: "About", url: "/about" },
                     { id: 3, name: "Categories", subMenu: true },
@@ -74,7 +62,6 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                                 {item.name}
                                 <BsChevronDown size={14} />
 
-                                {/* ✅ Display categories in the dropdown */}
                                 {showCatMenu && (
                                     <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
                                         {loading ? (
@@ -85,16 +72,20 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                                                 <span>Thinking...</span>
                                             </div>
                                         ) : (
-                                            categories.map(({ id, name, link }) => (
-                                                <Link key={id} href={link}>
-                                                    <li
-                                                        className="h-12 flex justify-between items-center px-3 hover:bg-gray-100 rounded-md"
-                                                        onClick={() => setShowCatMenu(false)}
-                                                    >
-                                                        {name}
-                                                    </li>
-                                                </Link>
-                                            ))
+                                            categories && categories.length > 0 ? (
+                                                categories.map(({ id, name, link }) => (
+                                                    <Link key={id} href={link}>
+                                                        <li
+                                                            className="h-12 flex justify-between items-center px-3 hover:bg-gray-100 rounded-md"
+                                                            onClick={() => setShowCatMenu(false)}
+                                                        >
+                                                            {name}
+                                                        </li>
+                                                    </Link>
+                                                ))
+                                            ) : (
+                                                <p className="text-center text-gray-600 p-2">No categories available</p>
+                                            )
                                         )}
                                     </ul>
                                 )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
+import productData from "../productData";
 // import { fetchDataFromApi } from "@/utils/api";  // API Import Commented
 import useSWR from "swr";
 import { useRouter } from "next/router";

@@ -1,80 +1,91 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import categories from "../../data/categories";
 
 const CasualShoes = () => {
     const CasualShoesCategory = categories.find(cat => cat.name === "CasualShoes");
-    const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 20 });
-    const [products, setProducts] = useState(CasualShoesCategory?.products || []);
+    const [timeLeft, setTimeLeft] = useState({ hours: 12, minutes: 20, seconds: 0 });
+    const [products, setProducts] = useState([]);
     const [sortOption, setSortOption] = useState("popularity");
 
+    // Countdown Timer
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft((prev) => {
-                let { hours, minutes, second } = prev;
+                let { hours, minutes, seconds } = prev;
     
-                if (second > 0) {
-                    second--;
+                if (seconds > 0) {
+                    return { ...prev, seconds: seconds - 1 };
                 } else if (minutes > 0) {
-                    minutes--;
-                    second = 59;
+                    return { hours, minutes: minutes - 1, seconds: 59 };
                 } else if (hours > 0) {
-                    hours--;
-                    minutes = 59;
-                    second = 59;
+                    return { hours: hours - 1, minutes: 59, seconds: 59 };
+                } else {
+                    clearInterval(timer);
+                    return { hours: 0, minutes: 0, seconds: 0 };
                 }
-    
-                return { hours, minutes, second };
             });
-        }, 1000); // Run every 1 second
-    
+        }, 1000);
+
         return () => clearInterval(timer);
     }, []);
-    
+
+    // Sorting Logic
     useEffect(() => {
-        let sortedProducts = [...products];
+        if (CasualShoesCategory?.products) {
+            let sortedProducts = [...CasualShoesCategory.products];
 
-        if (sortOption === "price-low-high") {
-            sortedProducts.sort((a, b) => a.price - b.price);
-        } else if (sortOption === "price-high-low") {
-            sortedProducts.sort((a, b) => b.price - a.price);
-        } else if (sortOption === "newest") {
-            sortedProducts.sort((a, b) => b.id - a.id);
+            if (sortOption === "price-low-high") {
+                sortedProducts.sort((a, b) => a.price - b.price);
+            } else if (sortOption === "price-high-low") {
+                sortedProducts.sort((a, b) => b.price - a.price);
+            } else if (sortOption === "newest") {
+                sortedProducts.sort((a, b) => b.id - a.id);
+            }
+
+            setProducts(sortedProducts);
         }
-
-        setProducts(sortedProducts);
-    }, [sortOption]);
+    }, [sortOption, CasualShoesCategory]);
 
     return (
         <div className="max-w-[1360px] mx-auto p-4">
+            {/* Hero Section */}
             <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden bg-cover bg-center">
-                <img src="/products/slide-2.png" alt="Casual Shoes Collection" className="absolute inset-0 w-full h-full object-cover" />
+                <Image src="/products/slide-2.png" alt="Casual Shoes Collection" layout="fill" objectFit="cover" />
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center px-4">
-                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">Men's Clothing & Footwear</h1>
-                    {/* Offer Box */}
-<div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
-    <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
-    <p className="text-lg mt-1 text-black">
-        Hurry! Offer ends in 
-        <span className="text-red-500">
-            {" "}{timeLeft.hours}h {timeLeft.minutes}m {timeLeft.second}s
-        </span>
-    </p>
-    <Link href="/shop">
-        <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
-            Shop Now
-        </button>
-    </Link>
-</div>
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">
+                        Casual Footwear
+                    </h1>
 
+                    {/* Offer Box */}
+                    <div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
+                        <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
+                        <p className="text-lg mt-1 text-black">
+                            Hurry! Offer ends in 
+                            <span className="text-red-500">
+                                {" "}{timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+                            </span>
+                        </p>
+                        <Link href="/shop">
+                            <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition">
+                                Shop Now
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
 
+            {/* Sorting & Product Count */}
             <div className="flex justify-between items-center mt-6">
                 <p className="text-gray-600">Showing {products.length} products</p>
                 <div className="flex items-center space-x-2">
                     <span className="text-gray-700">Sort by:</span>
-                    <select className="border rounded-md p-2" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+                    <select
+                        className="border rounded-md p-2"
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value)}
+                    >
                         <option value="popularity">Popularity</option>
                         <option value="price-low-high">Price: Low to High</option>
                         <option value="price-high-low">Price: High to Low</option>
@@ -83,28 +94,28 @@ const CasualShoes = () => {
                 </div>
             </div>
 
-            {/* <h1 className="text-3xl font-bold text-center my-6">Casual Shoes</h1>
-            <p className="text-center">Explore the latest trends in men's fashion and footwear.</p> */}
-
+            {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
                 {products.map((product) => (
                     <Link key={product.id} href={`/shop/product/${product.id}`}>
                         <div className="border p-4 rounded-md shadow-md cursor-pointer hover:shadow-lg">
-                            <img src={product.image} alt={product.name} className="w-full h-60 object-cover rounded-md"/>
+                            <Image src={product.image} alt={product.name} width={300} height={240} className="rounded-md" />
                             <h2 className="text-lg font-bold mt-2">{product.name}</h2>
                             <p className="text-gray-500">₹{product.price}</p>
                         </div>
                     </Link>
                 ))}
-                {/* View All Button */}
-<div className="flex justify-center mt-8">
+            </div>
+
+          {/* Container to push button to the end */}
+<div className="flex flex-col items-center mt-12">
     <Link href="/shop">
         <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition-all">
             View All Products
         </button>
     </Link>
 </div>
-            </div>
+
         </div>
     );
 };
