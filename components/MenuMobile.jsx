@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { categories as staticCategories } from "../data/categories";
+import categories from "@/data/categories";
 
 const data = [
     { id: 1, name: "Home", url: "/" },
@@ -14,7 +14,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        setCategories(staticCategories);
+        setCategories(categories);
     }, []);
 
     return (
