@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { categories as categoryData } from '@/data/categories';
+import categories from '@/data/categories';
 import CategoryCard from "@/components/CategoryCard";
 
 const Shop = () => {
     const [sortOption, setSortOption] = useState("default");
-    const [categories, setCategories] = useState(categoryData);
+    const [categories, setCategories] = useState(categories);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     const handleSortChange = (e) => {
         const value = e.target.value;
         setSortOption(value);
 
-        let sortedCategories = [...categoryData];
+        let sortedCategories = [...categories];
 
         if (value === "price-low") {
             sortedCategories.sort((a, b) => a.price - b.price);
@@ -30,10 +30,10 @@ const Shop = () => {
     const handleCategoryClick = (category) => {
         if (selectedCategory === category) {
             setSelectedCategory(null);
-            setCategories(categoryData);
+            setCategories(categories);
         } else {
             setSelectedCategory(category);
-            setCategories(categoryData.filter(cat => cat.name === category));
+            setCategories(categories.filter(cat => cat.name === category));
         }
     };
 
@@ -89,7 +89,7 @@ const Shop = () => {
 
                     <h3 className="text-lg font-semibold mb-2">Categories</h3>
                     <ul className="space-y-2">
-                        {categoryData.map((category) => (
+                        {categories.map((category) => (
                             <li 
                                 key={category.id} 
                                 className={`p-2 rounded-md cursor-pointer transition ${
@@ -107,7 +107,7 @@ const Shop = () => {
                     {selectedCategory && (
                         <button 
                             className="mt-4 w-full p-2 bg-gray-300 hover:bg-gray-400 text-black rounded-md"
-                            onClick={() => { setSelectedCategory(null); setCategories(categoryData); }}
+                            onClick={() => { setSelectedCategory(null); setCategories(categories); }}
                         >
                             Reset Filters
                         </button>

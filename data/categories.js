@@ -1,6 +1,6 @@
 const categories = [
     {
-        id: 1,
+        id: 1, 
         name: "mens-shoes",
         image: "/products/formal-shoes.jpg",
         link: "/shop/mens-shoes",
