@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { categories } from "@/data/categories"; // ✅ API की जगह Direct Import
+import categories  from "@/data/categories"; // ✅ API की जगह Direct Import
 
 const Menu = ({ showCatMenu, setShowCatMenu }) => {
     const [showOffer, setShowOffer] = useState(true);
@@ -46,7 +46,7 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                 {[ 
                     { id: 1, name: "Home", url: "/" },
                     { id: 2, name: "About", url: "/about" },
-                    // { id: 3, name: "Categories", subMenu: true },
+                    { id: 3, name: "Categories", subMenu: true },
                     { id: 4, name: "Contact", url: "/ContactUs" },
                 ].map((item) => (
                     <React.Fragment key={item.id}>
