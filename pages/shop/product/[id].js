@@ -74,10 +74,10 @@ const ProductDetails = () => {
                     <p className="text-gray-500 text-lg font-semibold">₹{product.price}</p>
 
                     {/* Order Buttons */}
-                    <div className="mt-5 flex gap-3">
+                    {/* <div className="mt-5 flex gap-3">
                         <button className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition">
                             Buy Now
-                        </button>
+                        </button> */}
                         <button
                             className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition"
                             onClick={() => setShowForm(true)}
