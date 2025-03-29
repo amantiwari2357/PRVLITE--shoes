@@ -10,14 +10,14 @@ const data = [
 ];
 
 const categories = [
-    { id: 101, name: "Men's Shoes", url: "/category/mens-shoes" },
-    { id: 102, name: "Casual Shoes", url: "/category/casual-shoes" },
-    { id: 103, name: "Formal Shoes", url: "/category/formal-shoes" },
-    { id: 104, name: "Sneakers", url: "/category/sneakers" },
-    { id: 105, name: "Accessories", url: "/category/accessories" },
-    { id: 106, name: "Women's Shoes", url: "/category/womens-shoes" },
-    { id: 107, name: "Sports Shoes", url: "/category/sports-shoes" },
-    { id: 108, name: "Footwear", url: "/category/footwear" },
+    { id: 101, name: "Men's Shoes", url: "/shop/mens-shoes" },
+    { id: 102, name: "Casual Shoes", url: "/shop/CasualShoes" },
+    { id: 103, name: "Formal Shoes", url: "/shop/FormalShoes" },
+    { id: 104, name: "Sneakers", url: "/shop/Sneakers" },
+    { id: 105, name: "Accessories", url: "/shop/accessories" },
+    { id: 106, name: "Women's Shoes", url: "/shop/womens-shoes" },
+    { id: 107, name: "Sports Shoes", url: "/shop/SportsShoes" },
+    { id: 108, name: "Footwear", url: "/shop/footwear" },
 ];
 
 const MenuMobile = ({ setMobileMenu }) => {
