@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import categories from '@/data/categories';
+import categoryData from '@/data/categories'; // Renamed import to avoid conflicts
 import CategoryCard from "@/components/CategoryCard";
 
 const Shop = () => {
     const [sortOption, setSortOption] = useState("default");
-    const [categories, setCategories] = useState(categories);
+    const [categoryList, setCategoryList] = useState(categoryData);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
+    // Sorting function
     const handleSortChange = (e) => {
         const value = e.target.value;
         setSortOption(value);
 
-        let sortedCategories = [...categories];
+        let sortedCategories = [...categoryList];
 
         if (value === "price-low") {
             sortedCategories.sort((a, b) => a.price - b.price);
@@ -24,16 +25,17 @@ const Shop = () => {
             sortedCategories.sort((a, b) => b.popularity - a.popularity);
         }
 
-        setCategories(sortedCategories);
+        setCategoryList(sortedCategories);
     };
 
-    const handleCategoryClick = (category) => {
-        if (selectedCategory === category) {
+    // Category filter function
+    const handleCategoryClick = (categoryName) => {
+        if (selectedCategory === categoryName) {
             setSelectedCategory(null);
-            setCategories(categories);
+            setCategoryList(categoryData); // Reset to all categories
         } else {
-            setSelectedCategory(category);
-            setCategories(categories.filter(cat => cat.name === category));
+            setSelectedCategory(categoryName);
+            setCategoryList(categoryData.filter(cat => cat.name === categoryName));
         }
     };
 
@@ -43,11 +45,14 @@ const Shop = () => {
             <div className="relative bg-gradient-to-r from-orange-200 to-white p-6 rounded-lg shadow-lg flex items-center justify-between">
                 <div>
                     <h2 className="text-4xl font-bold text-orange-500">FLAT 50% OFF</h2>
-                    <p className="text-xl text-gray-700"><span className="text-orange-500">12 Hours 20 Mins</span></p>
-                    <button className="mt-4 px-6 py-2 bg-orange-500 text-white rounded-full text-lg font-semibold hover:bg-orange-600">Explore Now</button>
+                    <p className="text-xl text-gray-700">
+                        <span className="text-orange-500">12 Hours 20 Mins</span>
+                    </p>
+                    <button className="mt-4 px-6 py-2 bg-orange-500 text-white rounded-full text-lg font-semibold hover:bg-orange-600">
+                        Explore Now
+                    </button>
                 </div>
                 <div>
-                    {/* Placeholder for Image, replace with an actual image tag */}
                     <img src="/p5.png" alt="Discount Banner" className="w-40 h-auto" />
                 </div>
             </div>
@@ -68,11 +73,12 @@ const Shop = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
             >
-                {/* Explore our wide range of shoe categories, from casual wear to formal styles.  
-                Whether you need running shoes, stylish sneakers  */}
+                Explore our wide range of shoe categories, from casual wear to formal styles.  
+                Whether you need running shoes, stylish sneakers, or formal footwear, we have it all.
             </motion.p>
 
             <div className="flex flex-col md:flex-row gap-6">
+                {/* Sidebar Filters */}
                 <div className="w-full md:w-[250px] p-4 border border-gray-200 rounded-lg shadow-md bg-white">
                     <h3 className="text-lg font-semibold mb-2">Sort By</h3>
                     <select 
@@ -89,7 +95,7 @@ const Shop = () => {
 
                     <h3 className="text-lg font-semibold mb-2">Categories</h3>
                     <ul className="space-y-2">
-                        {categories.map((category) => (
+                        {categoryData.map((category) => (
                             <li 
                                 key={category.id} 
                                 className={`p-2 rounded-md cursor-pointer transition ${
@@ -104,24 +110,26 @@ const Shop = () => {
                         ))}
                     </ul>
 
+                    {/* Reset Filters Button */}
                     {selectedCategory && (
                         <button 
                             className="mt-4 w-full p-2 bg-gray-300 hover:bg-gray-400 text-black rounded-md"
-                            onClick={() => { setSelectedCategory(null); setCategories(categories); }}
+                            onClick={() => { setSelectedCategory(null); setCategoryList(categoryData); }}
                         >
                             Reset Filters
                         </button>
                     )}
                 </div>
 
+                {/* Category Cards Grid */}
                 <motion.div 
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
                 >
-                    {categories.length > 0 ? (
-                        categories.map((category) => (
+                    {categoryList.length > 0 ? (
+                        categoryList.map((category) => (
                             <CategoryCard key={category.id} category={category} />
                         ))
                     ) : (

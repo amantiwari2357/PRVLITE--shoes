@@ -1,31 +1,42 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import categories from "../../../data/categories";
+import categories from "../../../data/categories"; // Ensure correct path
 
 const ProductDetails = () => {
     const router = useRouter();
     const { id } = router.query;
     const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (id) {
-            const allProducts = categories.flatMap((category) =>
-                category.products ? category.products.map((p) => ({ ...p, category: category.name })) : []
-            );
+        if (!id) return; // Prevent running when id is undefined
 
-            const foundProduct = allProducts.find((p) => p.id === Number(id));
-            setProduct(foundProduct || null);
-        }
+        setLoading(true);
+        const allProducts = Array.isArray(categories)
+            ? categories.flatMap((category) =>
+                Array.isArray(category.products)
+                    ? category.products.map((p) => ({ ...p, category: category.name }))
+                    : []
+            )
+            : [];
+
+        const foundProduct = allProducts.find((p) => p.id === parseInt(id, 10));
+        setProduct(foundProduct || null);
+        setLoading(false);
     }, [id]);
 
+    if (loading) {
+        return <h1 className="text-center text-2xl">Loading...</h1>;
+    }
+
     if (!product) {
-        return <h1 className="text-center text-2xl">Product Not Found</h1>;
+        return <h1 className="text-center text-2xl text-red-500">Product Not Found</h1>;
     }
 
     return (
         <div className="max-w-5xl mx-auto p-6">
-            {/* Breadcrumb */}
+            {/* Breadcrumb Navigation */}
             <p className="text-lg font-bold font-serif text-gray-700 mb-4">
                 <span
                     className="text-blue-600 cursor-pointer hover:underline transition-all"
@@ -36,7 +47,7 @@ const ProductDetails = () => {
                 <span className="mx-2 text-gray-600">{'>'}</span>
                 <span
                     className="text-blue-600 cursor-pointer hover:underline transition-all"
-                    onClick={() => router.push(`/shop`)}
+                    onClick={() => router.push("/shop")}
                 >
                     Shop
                 </span>
@@ -44,13 +55,20 @@ const ProductDetails = () => {
                 <span className="text-gray-900">{product.name}</span>
             </p>
 
-            {/* Product Image and Details */}
+            {/* Product Image & Details */}
             <div className="flex flex-col md:flex-row gap-8">
-                <Image src={product.image} width={500} height={500} alt={product.name} className="rounded-md" />
-                
+                <Image
+                    src={product.image || "/default-placeholder.png"} // Use fallback image if missing
+                    width={500}
+                    height={500}
+                    alt={product.name}
+                    className="rounded-md object-cover"
+                    priority
+                />
+
                 <div>
                     <h1 className="text-3xl font-bold">{product.name}</h1>
-                    <p className="text-gray-500 text-lg">Category: {product.category}</p>
+                    <p className="text-gray-500 text-lg">Category: <strong>{product.category}</strong></p>
                     <p className="text-gray-500 text-lg font-semibold">₹{product.price}</p>
 
                     {/* Order Buttons */}
