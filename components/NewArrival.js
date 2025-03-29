@@ -35,7 +35,7 @@ const NewArrivals = () => {
           </motion.div>
         </AnimatePresence>
         <Button className="w-56 md:w-72 h-12 md:h-16 rounded-full bg-[#ff4141] text-white text-lg md:text-xl font-medium mt-6 hover:bg-red-600 transition-all">
-          Shop Now
+          Request Order
         </Button>
       </div>
 
