@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -34,9 +35,11 @@ const NewArrivals = () => {
             </p>
           </motion.div>
         </AnimatePresence>
-        <Button className="w-56 md:w-72 h-12 md:h-16 rounded-full bg-[#ff4141] text-white text-lg md:text-xl font-medium mt-6 hover:bg-red-600 transition-all">
-          Request Order
-        </Button>
+        <Link href="/shop" passHref>
+  <Button className="w-56 md:w-72 h-12 md:h-16 rounded-full bg-[#ff4141] text-white text-lg md:text-xl font-medium mt-6 hover:bg-red-600 transition-all">
+    Request Order
+  </Button>
+</Link>
       </div>
 
       {/* Right Section - Smooth Image Transition */}
