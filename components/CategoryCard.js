@@ -13,7 +13,7 @@ const CategoryCard = ({ category }) => {
     };
 
     return (
-        <Link href={category.link} className="w-full sm:w-[260px]">
+        <Link href={category.link} className="w-full sm:w-[220px]">
             <motion.div
                 className="group cursor-pointer border border-gray-300 rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-all duration-300 relative"
                 whileHover={{ scale: 1.05, boxShadow: "0px 15px 30px rgba(0,0,0,0.2)" }}
