@@ -29,9 +29,7 @@ const ProductDetail = () => {
             {/* Breadcrumb */}
             <p className="text-lg font-bold font-serif text-gray-700 mb-4">
                 <span className="text-blue-600 cursor-pointer hover:underline transition-all"
-                    onClick={() => router.push("/")}>
-                    Home
-                </span>
+                    onClick={() => router.push("/")}>Home</span>
                 <span className="mx-2 text-gray-600">{'>'}</span>
                 <span className="text-gray-900">{product.attributes.name}</span>
             </p>
@@ -68,16 +66,11 @@ const ProductDetail = () => {
                         </div>
                     </div>
 
-                    {/* Order Buttons */}
-                    {/* <div className="mt-5 flex gap-3">
-                        <button className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition">
-                            Buy Now
-                        </button> */}
-                        <button className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition"
-                            onClick={() => setShowForm(true)}>
-                            Request Order
-                        </button>
-                    </div>
+                    {/* Order Button */}
+                    <button className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition"
+                        onClick={() => setShowForm(true)}>
+                        Request Order
+                    </button>
                 </div>
             </div>
 
