@@ -2,12 +2,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import categories from "../../../data/categories"; // Ensure correct path
+import OrderEnquiryForm from "@/components/OrderEnquiryForm"; // Import enquiry form
 
 const ProductDetails = () => {
     const router = useRouter();
     const { id } = router.query;
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         if (!id) return; // Prevent running when id is undefined
@@ -76,12 +78,18 @@ const ProductDetails = () => {
                         <button className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition">
                             Buy Now
                         </button>
-                        <button className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition">
+                        <button
+                            className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition"
+                            onClick={() => setShowForm(true)}
+                        >
                             Request Order
                         </button>
                     </div>
                 </div>
             </div>
+
+            {/* Order Enquiry Form */}
+            {showForm && <OrderEnquiryForm onClose={() => setShowForm(false)} />}
         </div>
     );
 };

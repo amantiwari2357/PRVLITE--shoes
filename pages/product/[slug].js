@@ -1,10 +1,13 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import productsData from "@/data/products";
 import Image from "next/image";
+import OrderEnquiryForm from "@/components/OrderEnquiryForm"; // Import enquiry form
 
 const ProductDetail = () => {
     const router = useRouter();
     const { slug } = router.query;
+    const [showForm, setShowForm] = useState(false);
 
     // ✅ Find product category-wise
     let product = null;
@@ -25,16 +28,13 @@ const ProductDetail = () => {
         <div className="max-w-5xl mx-auto p-6">
             {/* Breadcrumb */}
             <p className="text-lg font-bold font-serif text-gray-700 mb-4">
-    <span
-        className="text-blue-600 cursor-pointer hover:underline transition-all"
-        onClick={() => router.push("/")}
-    >
-        Home
-    </span> 
-    <span className="mx-2 text-gray-600">{'>'}</span> 
-    <span className="text-gray-900">{product.attributes.name}</span>
-</p>
-
+                <span className="text-blue-600 cursor-pointer hover:underline transition-all"
+                    onClick={() => router.push("/")}>
+                    Home
+                </span>
+                <span className="mx-2 text-gray-600">{'>'}</span>
+                <span className="text-gray-900">{product.attributes.name}</span>
+            </p>
 
             {/* Product Layout */}
             <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row gap-6">
@@ -73,12 +73,16 @@ const ProductDetail = () => {
                         <button className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition">
                             Buy Now
                         </button>
-                        <button className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition">
+                        <button className="px-5 py-2 bg-gray-800 text-white font-semibold rounded-md hover:bg-gray-900 transition"
+                            onClick={() => setShowForm(true)}>
                             Request Order
                         </button>
                     </div>
                 </div>
             </div>
+
+            {/* Order Enquiry Form */}
+            {showForm && <OrderEnquiryForm onClose={() => setShowForm(false)} />}
         </div>
     );
 };
