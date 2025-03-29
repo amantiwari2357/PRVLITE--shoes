@@ -64,7 +64,7 @@ const WomensClothing = () => {
                     className="w-full h-full object-cover rounded-lg"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-lg text-center px-6">
-                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">WomensClothing Collection</h1>
+                    <h1 className="text-white text-5xl md:text-6xl font-extrabold uppercase drop-shadow-md">Womens shoes Collection</h1>
                     {/* Offer Box */}
 <div className="mt-4 bg-white/90 px-4 py-2 rounded-lg shadow-md">
     <h2 className="text-2xl font-bold text-orange-500">FLAT 50% OFF</h2>
