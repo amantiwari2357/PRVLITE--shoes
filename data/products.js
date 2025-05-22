@@ -12,7 +12,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear1.jpg",
+                            url: "/shoe's/footwear1.jpg",
                         },
                     },
                 },
@@ -30,7 +30,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear2.jpg",
+                            url: "/shoe's/footwear2.jpg",
                         },
                     },
                 },
@@ -47,7 +47,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear3.jpg",
+                            url: "/shoe's/footwear3.jpg",
                         },
                     },
                 },
@@ -64,7 +64,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/mens5.jpg",
+                            url: "/shoe's/mens5.jpg",
                         },
                     },
                 },
@@ -85,7 +85,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear5.jpg",
+                            url: "/shoe's/mens6.jpg",
                         },
                     },
                 },
@@ -103,7 +103,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear6.jpg",
+                            url: "/shoe's/mens6.jpg",
                         },
                     },
                 },
@@ -120,7 +120,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear7.jpg",
+                            url: "/shoe's/mens7.jpg",
                         },
                     },
                 },
@@ -137,7 +137,7 @@ const productsData = {
                 thumbnail: {
                     data: {
                         attributes: {
-                            url: "/products/footwear4.jpg",
+                            url: "/shoe's/mens8.jpg",
                         },
                     },
                 },
