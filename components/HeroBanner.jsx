@@ -30,10 +30,10 @@ const HeroBanner = () => {
           </div>
         )}
       >
-        {/* स्लाइड 1 */}
+        {/* slide 1 */}
         <div className="relative">
           <img
-            src="/slide-3.png"
+            src="/Banner/shoe 1.jpg"
             className="aspect-[16/10] md:aspect-auto object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center items-start p-6 md:p-12">
@@ -51,10 +51,10 @@ const HeroBanner = () => {
           </div>
         </div>
 
-        {/* स्लाइड 2 */}
+        {/* slide 2 */}
         <div className="relative">
           <img
-            src="/slide-2.png"
+            src="/banner/shoe 2.jpg"
             className="aspect-[16/10] md:aspect-auto object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center items-start p-6 md:p-12">
@@ -72,10 +72,10 @@ const HeroBanner = () => {
           </div>
         </div>
 
-        {/* स्लाइड 3 */}
+        {/* slide 3 */}
         <div className="relative">
           <img
-            src="/slide-3.png"
+            src="/banner/shoe 2.jpg"
             className="aspect-[16/10] md:aspect-auto object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center items-start p-6 md:p-12">
