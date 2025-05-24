@@ -75,7 +75,7 @@ const HeroBanner = () => {
         {/* slide 3 */}
         <div className="relative">
           <img
-            src="/banner/shoe 2.jpg"
+            src="/banner/shoe 3.jpg"
             className="aspect-[16/10] md:aspect-auto object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center items-start p-6 md:p-12">
